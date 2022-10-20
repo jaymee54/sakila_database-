@@ -8,7 +8,7 @@ public class Actor {
 
     //Atributes
     @Id
-    @Column(name = actorid)
+    @Column(name = "actor_id")
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     int actorid;
 
@@ -43,7 +43,7 @@ public class Actor {
     public int getactorid(){
         return actorid;
     }
-    public void setactorid(String actorid){
+    public void setactorid(int actorid){
         this.actorid = actorid;
     }
 }
