@@ -89,4 +89,66 @@ public class film {
         this.filmdescription = filmdescription;
     }
 
+    public String getFilmreleasedate() {
+        return filmreleasedate;
+    }
+    public void setFilmreleasedate(String filmreleasedate) {
+        this.filmreleasedate = filmreleasedate;
+    }
+
+    public int getFilmrlanguageid() {
+        return filmrlanguageid;
+    }
+    public void setFilmrlanguageid(int filmrlanguageid) {
+        this.filmrlanguageid = filmrlanguageid;
+    }
+
+    public int getFilmrentalduration() {
+        return filmrentalduration;
+    }
+    public void setFilmrentalduration(int filmrentalduration) {
+        this.filmrentalduration = filmrentalduration;
+    }
+
+    public double getFilmrentalrate() {
+        return filmrentalrate;
+    }
+    public void setFilmrentalrate(double filmrentalrate) {
+        this.filmrentalrate = filmrentalrate;
+    }
+
+    public int getFilmlength() {
+        return filmlength;
+    }
+    public void setFilmlength(int filmlength) {
+        this.filmlength = filmlength;
+    }
+
+    public double getFilmreplacementcost() {
+        return filmreplacementcost;
+    }
+    public void setFilmreplacementcost(double filmreplacementcost) {
+        this.filmreplacementcost = filmreplacementcost;
+    }
+
+    public double getFilmrating() {
+        return filmrating;
+    }
+    public void setFilmrating(double filmrating) {
+        this.filmrating = filmrating;
+    }
+
+    public String getFilmspecialfeatures() {
+        return filmspecialfeatures;
+    }
+    public void setFilmspecialfeatures(String filmspecialfeatures) {
+        this.filmspecialfeatures = filmspecialfeatures;
+    }
+
+    public String getFilmlastupdate() {
+        return filmlastupdate;
+    }
+    public void setFilmlastupdate(String filmlastupdate) {
+        this.filmlastupdate = filmlastupdate;
+    }
 }

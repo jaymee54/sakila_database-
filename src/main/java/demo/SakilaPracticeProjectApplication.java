@@ -27,4 +27,10 @@ public class SakilaPracticeProjectApplication {
 	Iterable <Actor> getAllActors(){
 		return actorRepo.findAll();
 	}
+
+	@GetMapping("/allFilms")
+	public @ResponseBody
+	Iterable <film> getAllfilms(){
+		return filmRepo.findAll();
+	}
 }
