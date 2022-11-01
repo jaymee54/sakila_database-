@@ -1,12 +1,10 @@
 package demo;
 
-import org.springframework.transaction.interceptor.MatchAlwaysTransactionAttributeSource;
-
 import javax.persistence.*;
 
 @Entity
 @Table(name ="film")
-public class film {
+public class Film {
     //Atributes
     @Id
     @Column(name = "film_id")
@@ -22,7 +20,7 @@ public class film {
     @Column(name = "release_date")
     String  filmreleasedate;
 
-    @Column(name = "Language_id")
+    @Column(name = "language_id")
     int  filmrlanguageid;
 
     @Column(name = "rental_duration")
@@ -38,7 +36,7 @@ public class film {
     double  filmreplacementcost;
 
     @Column(name = "rating")
-    double filmrating;
+    String filmrating;
 
     @Column(name = "special_features")
     String  filmspecialfeatures;
@@ -48,7 +46,7 @@ public class film {
 
     //Constructors
 
-    public film(String Mytitle,String Mydescription, String Myreleasedate, int Mylanguageid, int Myrentalduration, double Myrentalrate, int Mylength, double Myreplacementcost, double Myrating, String Myspecialfeatures, String Mylastupdate){
+    public Film(String Mytitle, String Mydescription, String Myreleasedate, int Mylanguageid, int Myrentalduration, double Myrentalrate, int Mylength, double Myreplacementcost, String Myrating, String Myspecialfeatures, String Mylastupdate){
         this.filmtitle = Mytitle;
         this.filmdescription = Mydescription;
         this.filmreleasedate = Myreleasedate;
@@ -60,9 +58,9 @@ public class film {
         this.filmrating = Myrating;
         this.filmspecialfeatures = Myspecialfeatures;
         this.filmlastupdate = Mylastupdate;
-    }
+   }
 
-    public film(){
+    public Film(){
     }
 
     //Methods
@@ -82,9 +80,9 @@ public class film {
         this.filmtitle = Mytitle;
     }
 
-    public String getFilmdescription() {
+   public String getFilmdescription() {
         return filmdescription;
-    }
+   }
     public void setFilmdescription(String filmdescription) {
         this.filmdescription = filmdescription;
     }
@@ -131,10 +129,10 @@ public class film {
         this.filmreplacementcost = filmreplacementcost;
     }
 
-    public double getFilmrating() {
+    public String getFilmrating() {
         return filmrating;
     }
-    public void setFilmrating(double filmrating) {
+    public void setFilmrating(String filmrating) {
         this.filmrating = filmrating;
     }
 
@@ -148,6 +146,7 @@ public class film {
     public String getFilmlastupdate() {
         return filmlastupdate;
     }
+
     public void setFilmlastupdate(String filmlastupdate) {
         this.filmlastupdate = filmlastupdate;
     }

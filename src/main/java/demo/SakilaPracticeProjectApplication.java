@@ -3,7 +3,9 @@ package demo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.client.ResourceAccessException;
 
 @SpringBootApplication
 @RestController
@@ -13,8 +15,10 @@ import org.springframework.web.bind.annotation.*;
 public class SakilaPracticeProjectApplication {
 	@Autowired
 	private ActorRepo actorRepo;
-	public SakilaPracticeProjectApplication(ActorRepo MyActorRepo){
+	private FilmRepo filmRepo;
+	public SakilaPracticeProjectApplication(ActorRepo MyActorRepo, FilmRepo myfilmRepo){
 		this.actorRepo = MyActorRepo;
+		this.filmRepo = myfilmRepo;
 
 	}
 
@@ -28,9 +32,18 @@ public class SakilaPracticeProjectApplication {
 		return actorRepo.findAll();
 	}
 
+	@GetMapping("/allActors/{id}")
+	public Actor getsingleActor(@PathVariable(value = "id") int actorid){
+		return actorRepo.findById(actorid).orElseThrow(() -> new ResourceAccessException("Actor index not found "+actorid));
+	}
+	@PostMapping("/Actor")
+	public Actor createActor(@Validated @RequestBody Actor actor){
+		return actorRepo.save(actor);
+	}
+
 	@GetMapping("/allFilms")
 	public @ResponseBody
-	Iterable <film> getAllfilms(){
+	Iterable <Film> getAllfilms(){
 		return filmRepo.findAll();
 	}
 }
