@@ -7,6 +7,8 @@ import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.client.ResourceAccessException;
 
+import java.util.HashMap;
+
 @SpringBootApplication
 @RestController
 @RequestMapping("/home")
@@ -31,7 +33,6 @@ public class SakilaPracticeProjectApplication {
 	Iterable <Actor> getAllActors(){
 		return actorRepo.findAll();
 	}
-
 	@GetMapping("/allActors/{id}")
 	public Actor getsingleActor(@PathVariable(value = "id") int actorid){
 		return actorRepo.findById(actorid).orElseThrow(() -> new ResourceAccessException("Actor index not found "+actorid));
@@ -40,6 +41,15 @@ public class SakilaPracticeProjectApplication {
 	public Actor createActor(@Validated @RequestBody Actor actor){
 		return actorRepo.save(actor);
 	}
+	@DeleteMapping("/Actor/{id}")
+	public void deleteActor(@PathVariable(value = "id") int actorid)
+		throws ResourceAccessException {
+		Actor actor = actorRepo.findById(actorid)
+				.orElseThrow(() -> new ResourceAccessException("Actor not found with id" + actorid));
+
+		actorRepo.delete(actor);
+	}
+	@PutMapping()
 
 	@GetMapping("/allFilms")
 	public @ResponseBody
