@@ -3,6 +3,7 @@ package demo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.http.ResponseEntity;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.client.ResourceAccessException;
@@ -49,7 +50,17 @@ public class SakilaPracticeProjectApplication {
 
 		actorRepo.delete(actor);
 	}
-	@PutMapping()
+	@PutMapping("/Actor/{id}")
+	public ResponseEntity<Actor> udateActor(@PathVariable(value = "id") int actorid,
+											@Validated @RequestBody Actor actorDetails) throws ResourceAccessException{
+		Actor actor = actorRepo.findById(actorid)
+				.orElseThrow(() -> new ResourceAccessException("Actor not found with this id " + actorid));
+
+		actor.setfirstname(actorDetails.getfirstname());
+		actor.setlastname(actorDetails.getlastname());
+		final Actor updatedActor = actorRepo.save(actor);
+		return ResponseEntity.ok(updatedActor);
+	}
 
 	@GetMapping("/allFilms")
 	public @ResponseBody
