@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.*;
 import org.springframework.web.client.ResourceAccessException;
 
 import java.util.HashMap;
+import java.util.List;
 
 @SpringBootApplication
 @RestController
@@ -27,6 +28,11 @@ public class SakilaPracticeProjectApplication {
 
 	public static void main(String[] args) {
 		SpringApplication.run(SakilaPracticeProjectApplication.class, args);
+	}
+
+	@GetMapping("/allActorswithfirstname/{name}")
+	public List<Actor> listactorswithfirstname(@PathVariable(value = "name")String firstnamesearch){
+		return actorRepo.findactorbyname(firstnamesearch);
 	}
 
 	@GetMapping("/allActors")
