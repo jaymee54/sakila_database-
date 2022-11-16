@@ -33,7 +33,6 @@ public class SearchActorFirstNameStepDef {
         listofactors = sakilaPracticeProjectApplication.listactorswithfirstname(testactorfirstname);
     }
 
-
     @Then("it should return the given actors")
     public void it_should_return_the_given_actors() {
         // Write code here that turns the phrase above into concrete actions

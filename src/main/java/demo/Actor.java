@@ -1,6 +1,7 @@
 package demo;
 
 import javax.persistence.*;
+import java.util.List;
 
 @Entity
 @Table(name ="actor")
@@ -11,6 +12,12 @@ public class Actor {
     @Column(name = "actor_id")
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     int actorid;
+
+    @ManyToMany(fetch = FetchType.EAGER, cascade = CascadeType.PERSIST)
+    @joinTable(name = "film_actor", joinColumns = @JoinColumn(name = "actor_id"),
+    inverseJoinColumns = @JoinColumn(name = film_id))
+
+    List<Film> films;
 
     @Column(name = "first_name")
     String  actorfirstname;

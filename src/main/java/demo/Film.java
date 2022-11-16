@@ -1,6 +1,7 @@
 package demo;
 
 import javax.persistence.*;
+import java.util.List;
 
 @Entity
 @Table(name ="film")
@@ -10,6 +11,9 @@ public class Film {
     @Column(name = "film_id")
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     int filmid;
+
+    @ManyToMany()
+    List<Actor> actors;
 
     @Column(name = "title")
     String  filmtitle;
