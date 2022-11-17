@@ -13,9 +13,9 @@ public class Actor {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     int actorid;
 
-    @ManyToMany(fetch = FetchType.EAGER, cascade = CascadeType.PERSIST)
-    @joinTable(name = "film_actor", joinColumns = @JoinColumn(name = "actor_id"),
-    inverseJoinColumns = @JoinColumn(name = film_id))
+    // @ManyToMany(fetch = FetchType.EAGER, cascade = CascadeType.PERSIST)
+    // @joinTable(name = "film_actor", joinColumns = @JoinColumn(name = "actor_id"),
+    // inverseJoinColumns = @JoinColumn(name = film_id))
 
     List<Film> films;
 
