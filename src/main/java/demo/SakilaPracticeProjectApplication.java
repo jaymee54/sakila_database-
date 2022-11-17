@@ -7,9 +7,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.client.ResourceAccessException;
-import demo.*;
 
-import java.util.HashMap;
 import java.util.List;
 
 @SpringBootApplication
@@ -33,7 +31,8 @@ public class SakilaPracticeProjectApplication {
 
 	@GetMapping("/allActorswithfirstname/{name}")
 	public List<Actor> listactorswithfirstname(@PathVariable(value = "name")String firstnamesearch){
-		return actorRepo.findactorbyname(firstnamesearch);
+		List<Actor> byFirstname = actorRepo.findByFirstname(firstnamesearch);
+		return byFirstname;
 	}
 
 	@GetMapping("/allActors")

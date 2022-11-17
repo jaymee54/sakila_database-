@@ -1,5 +1,7 @@
 package demo;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import javax.persistence.*;
 import java.util.List;
 
@@ -12,7 +14,8 @@ public class Film {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     int filmid;
 
-    @ManyToMany()
+    @ManyToMany(mappedBy = "films")
+            @JsonIgnore
     List<Actor> actors;
 
     @Column(name = "title")
@@ -21,11 +24,11 @@ public class Film {
     @Column(name = "description")
     String  filmdescription;
 
-    @Column(name = "release_date")
-    String  filmreleasedate;
+    @Column(name = "release_year")
+    int filmreleaseyear;
 
     @Column(name = "language_id")
-    int  filmrlanguageid;
+    int filmlanguageid;
 
     @Column(name = "rental_duration")
     int  filmrentalduration;
@@ -50,11 +53,11 @@ public class Film {
 
     //Constructors
 
-    public Film(String Mytitle, String Mydescription, String Myreleasedate, int Mylanguageid, int Myrentalduration, double Myrentalrate, int Mylength, double Myreplacementcost, String Myrating, String Myspecialfeatures, String Mylastupdate){
+    public Film(String Mytitle, String Mydescription, int Myreleaseyear, int Mylanguageid, int Myrentalduration, double Myrentalrate, int Mylength, double Myreplacementcost, String Myrating, String Myspecialfeatures, String Mylastupdate){
         this.filmtitle = Mytitle;
         this.filmdescription = Mydescription;
-        this.filmreleasedate = Myreleasedate;
-        this.filmrlanguageid = Mylanguageid;
+        this.filmreleaseyear = Myreleaseyear;
+        this.filmlanguageid = Mylanguageid;
         this.filmrentalduration = Myrentalduration;
         this.filmrentalrate = Myrentalrate;
         this.filmlength = Mylength;
@@ -91,18 +94,18 @@ public class Film {
         this.filmdescription = filmdescription;
     }
 
-    public String getFilmreleasedate() {
-        return filmreleasedate;
+    public int getFilmreleaseyear() {
+        return filmreleaseyear;
     }
-    public void setFilmreleasedate(String filmreleasedate) {
-        this.filmreleasedate = filmreleasedate;
+    public void setFilmreleaseyear(int filmreleaseyear) {
+        this.filmreleaseyear = filmreleaseyear;
     }
 
-    public int getFilmrlanguageid() {
-        return filmrlanguageid;
+    public int getFilmlanguageid() {
+        return filmlanguageid;
     }
-    public void setFilmrlanguageid(int filmrlanguageid) {
-        this.filmrlanguageid = filmrlanguageid;
+    public void setFilmlanguageid(int filmlanguageid) {
+        this.filmlanguageid = filmlanguageid;
     }
 
     public int getFilmrentalduration() {
