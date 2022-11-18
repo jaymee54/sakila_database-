@@ -42,14 +42,14 @@
 //   </div>
 // );
 
-import React, { useEffect, useState, useSyncExternalStore } from "react";
+import React, { useEffect, useRef, useState, useSyncExternalStore } from "react";
 import{ createRoot } from "react-dom/client";
 import "./index.css"
 
 const rootElement = document.getElementById('root');
 const root = createRoot(rootElement);
 
-export default function  Main(){
+ function  Getallactors(){
   //funtionality below:
 
   const[actorname,setactorname] = useState([])
@@ -66,7 +66,7 @@ export default function  Main(){
   function loadactors(){
     const pagecontent = [];
     actorname.forEach(element => {
-      pagecontent.push(<h1>{element.lastname}, {element.firstname}</h1>)
+      pagecontent.push(<h5>{element.lastname}, {element.firstname}</h5>)
     });
     return(pagecontent)
   }
@@ -75,8 +75,7 @@ export default function  Main(){
   return(
   <>
     <div>
-
-      <div className="background">
+      <div>
         {actorname !== [] ? 
         loadactors() 
         : 
@@ -86,6 +85,61 @@ export default function  Main(){
   </>
 )}
 
+ function  Getactorbyfirstname(){
+  //funtionality below:
+
+  const[actorname,setactorname] = useState([])
+  const searchbox = useRef()
+
+
+
+  function handlechange(){
+    let firstname = searchbox.current.value
+    fetch("http://localhost:8080/home/allActorswithfirstname/"+firstname)
+    .then(res => res.json())
+    .then(actor =>{
+    console.log(actor)
+    setactorname(actor)
+    })
+  }
+ 
+
+  function loadsearch(){
+    const pagecontent = [];
+    actorname.forEach(element => {
+      pagecontent.push(<h1>{element.lastname}, {element.firstname}</h1>)
+    });
+    return(pagecontent)
+  }
+
+  //what is displayed is below
+  return(
+  <>
+    <div>
+      <div >
+        Search:
+        <input type="text" ref={searchbox} onChange={handlechange} />
+      </div>
+      <div>
+        {actorname !== [] ? 
+        loadsearch() 
+        : 
+        null}
+      </div>
+    </div>
+  </>
+)}
+
 root.render(
-    <Main />
+  <div className="background middlecontainer">
+
+    {/* <div className="box right">
+      <Getallactors />
+    </div> */}
+
+    <div className="box">
+      <Getactorbyfirstname />
+    </div>
+
+  </div>
 ,);

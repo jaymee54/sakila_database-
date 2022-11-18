@@ -5,11 +5,22 @@
   font-family: monospace;
   font-size: clamp(20px, 2vw, 30px);
 }
+
 .box{
-  background-color: rgba(255, 255, 255, 0.1);
+  background-color: rgba(255, 255, 255, 0.3);
   padding: 10px;
   margin: 10px;
   border-radius: 10px;
+  width: fit-content;
+  
+}
+
+.left{
+  left: 5vw;
+}
+
+.right{
+  right: 5vw;
 }
 
 .ErrorText{
@@ -34,6 +45,7 @@
   background-image: linear-gradient(rgb(156, 255, 250) 20%, rgb(0, 167, 158));
   background-repeat: no-repeat;
   background-size: cover;
+  position: relative;
 }
 
 /* Centering */
