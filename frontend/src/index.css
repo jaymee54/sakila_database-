@@ -12,15 +12,18 @@
   margin: 10px;
   border-radius: 10px;
   width: fit-content;
+  position: absolute;
   
 }
 
 .left{
-  left: 5vw;
+  left: 1vw;
+  position: absolute;
 }
 
 .right{
-  right: 5vw;
+  right: 1vw;
+  position: absolute;
 }
 
 .ErrorText{
@@ -40,7 +43,7 @@
 }
 /* Background */
 .background{
-  height: 100vh;
+  height: 500vh;
   width: 100vw;
   background-image: linear-gradient(rgb(156, 255, 250) 20%, rgb(0, 167, 158));
   background-repeat: no-repeat;

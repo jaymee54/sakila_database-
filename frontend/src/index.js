@@ -131,15 +131,20 @@ const root = createRoot(rootElement);
 )}
 
 root.render(
-  <div className="background middlecontainer">
-
-    {/* <div className="box right">
-      <Getallactors />
-    </div> */}
-
-    <div className="box">
-      <Getactorbyfirstname />
+  <div>
+    <div className="banner">
+      <strong>Search for actor by their first name</strong>
     </div>
+    <div className="background middlecontainer">
 
+      <div className="box left">
+        <Getallactors />
+      </div>
+
+      <div className="box hoverable right">
+        <Getactorbyfirstname />
+      </div>
+
+    </div>
   </div>
 ,);
