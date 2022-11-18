@@ -31,12 +31,12 @@ public class Actor {
     String firstname;
 
     @Column(name = "last_name")
-    String  actorlastname;
+    String lastname;
 
     // Constructors
     public Actor(String Myfirstname, String Mylastname){
         this.firstname = Myfirstname;
-        this.actorlastname = Mylastname;
+        this.lastname = Mylastname;
     }
     public Actor(){
     }
@@ -50,10 +50,10 @@ public class Actor {
     }
 
     public String getlastname(){
-        return actorlastname;
+        return lastname;
     }
     public void setlastname(String actorlastname){
-        this.actorlastname = actorlastname;
+        this.lastname = actorlastname;
     }
     public int getactorid(){
         return actorid;

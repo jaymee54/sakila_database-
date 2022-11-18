@@ -1,0 +1,102 @@
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: monospace;
+  font-size: clamp(20px, 2vw, 30px);
+}
+.box{
+  background-color: rgba(255, 255, 255, 0.1);
+  padding: 10px;
+  margin: 10px;
+  border-radius: 10px;
+}
+
+.ErrorText{
+  color: red;
+}
+.hoverable {
+    text-decoration: none;
+    color: black;
+    width: fit-content;
+    display: block;
+    padding: 7px 7px;
+    border-radius: 7px;
+}
+.hoverable.active, .hoverable:hover{
+    background: rgb(150, 211, 138);
+    transition-duration: 0.5s;
+}
+/* Background */
+.background{
+  height: 100vh;
+  width: 100vw;
+  background-image: linear-gradient(rgb(156, 255, 250) 20%, rgb(0, 167, 158));
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+/* Centering */
+.highcontainer{
+  width: 100vw;
+  height: 70vh;
+}
+.middlecontainer{
+  width: 100vw;
+  height: 100vh;
+}
+.middle{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+/* Banner */
+.banner{
+display: flex;
+background-color: rgba(112, 28, 95, 0.75);
+height: 6vh;
+width: 100%;
+}
+.bannerObject{
+  display: inline-block;
+  justify-content: center;
+  padding: 10px;
+  margin-right: 20px;
+  margin: auto;
+}
+
+/* Log in specific */
+ input{
+  appearance: none;
+  background: none;
+  border: none;
+  outline: none;
+}
+
+ /* Quadrent specific */
+ .upperleft {
+  background-color: rgb(172, 243, 157, 0.75);
+}
+.upperright {
+  background-color: rgb(169, 159, 150, 0.75);
+}
+.lowerleft {
+  background-color: rgb(156, 255, 250, 0.75);
+}
+.lowerright {
+  background-color: rgb(175, 62, 77, 0.75);
+}
+.quadrentscontainer{
+  display: grid;
+  height: 96vh;
+  width: 100%;
+  grid-template-columns: auto auto;
+  grid-template-rows: auto auto;
+}
+.child-quadrent{
+  padding:  0 10px;
+  font-family: monospace;
+  font-size: 2rem;
+  border: 1px solid black;
+  position: relative;
+}
