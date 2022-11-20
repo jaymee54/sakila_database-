@@ -1,5 +1,6 @@
 package demo;
 
+import org.jetbrains.annotations.NotNull;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
@@ -24,7 +25,6 @@ public class SakilaPracticeProjectApplication {
 		this.filmRepo = myfilmRepo;
 
 	}
-
 	public static void main(String[] args) {
 		SpringApplication.run(SakilaPracticeProjectApplication.class, args);
 	}
@@ -57,8 +57,8 @@ public class SakilaPracticeProjectApplication {
 		actorRepo.delete(actor);
 	}
 	@PutMapping("/Actor/{id}")
-	public ResponseEntity<Actor> udateActor(@PathVariable(value = "id") int actorid,
-											@Validated @RequestBody Actor actorDetails) throws ResourceAccessException{
+	public ResponseEntity<Actor> updateActor(@PathVariable(value = "id") int actorid,
+											@Validated @RequestBody @NotNull Actor actorDetails) throws ResourceAccessException{
 		Actor actor = actorRepo.findById(actorid)
 				.orElseThrow(() -> new ResourceAccessException("Actor not found with this id " + actorid));
 
@@ -70,7 +70,8 @@ public class SakilaPracticeProjectApplication {
 
 	@GetMapping("/allFilms")
 	public @ResponseBody
-	Iterable <Film> getAllfilms(){
+	Iterable<Film> getAllfilms(){
 		return filmRepo.findAll();
 	}
+	//get films wip
 }
